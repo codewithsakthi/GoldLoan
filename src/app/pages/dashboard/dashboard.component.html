@@ -1,0 +1,115 @@
+<nz-layout class="app-layout">
+    <nz-sider class="menu-sidebar"
+      nzCollapsible
+      nzWidth="256px"
+      nzBreakpoint="md"
+      [(nzCollapsed)]="isCollapsed"
+      [nzTrigger]="null">
+      <div class="sidebar-logo">
+        <a>
+          <img src="../../../assets/credit-card-color-icon.svg" alt="logo">
+          <h1>{{bankname}}&nbsp;Bannkers</h1>&nbsp;
+          <svg (click)="logout()" style="color: white" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-log-out"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4" fill="white"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>        
+        </a>
+      </div>
+      <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+        <li nz-submenu nzOpen nzTitle="Accounts" nzIcon="dashboard">
+          <ul>
+            <li nz-menu-item nzMatchRouter>
+              <a routerLink="/welcome">Recipts</a>
+            </li>
+
+            <li nz-menu-item nzMatchRouter>
+              <a>Payments</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>Contra</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>Search</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>Gst Payments</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>Gst Recipts</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>Bank to Bank</a>
+            </li>
+            <li nz-menu-item nzMatchRouter>
+              <a>Settings</a>
+            </li>
+          </ul>
+        </li>
+    
+        <li nz-submenu nzOpen nzTitle="Gold" nzIcon="form">
+          <ul>
+            <li nz-submenu nzTitle="Customer">
+              <ul>
+                <li nz-menu-item>Customer</li>
+                <li nz-menu-item>Search Customer</li>
+              </ul>
+            </li>
+            <li nz-submenu nzTitle="Gold">
+              <ul>
+                <li nz-menu-item>Pledge</li>
+                <li nz-menu-item>Interest</li>
+                <li nz-menu-item>Part Payment</li>
+                <li nz-menu-item>Close</li>
+                <li nz-menu-item>Search Loan</li>
+                <li nz-menu-item>Edit Loan</li>
+
+
+              </ul>
+            </li>
+
+            <li nz-submenu nzTitle="Repledge">
+              <ul>
+                <li nz-menu-item>Repledge</li>
+                <li nz-menu-item>Full Release</li>
+                <li nz-menu-item>Part Release</li>
+                <li nz-menu-item>RP renewal</li>
+                <li nz-menu-item>RP Cash Payment</li>
+
+              </ul>
+            </li>
+
+            <li nz-submenu nzTitle="Reports">
+              <ul>
+                <li nz-menu-item>Customer Lists</li>
+                <li nz-menu-item>Gold Loan Recipt</li>
+                <li nz-menu-item>Gold Loan Payment</li>
+                <li nz-menu-item>Closed Pledges</li>
+                <li nz-menu-item>Gold Outstanding </li>
+                <li nz-menu-item>RP Outstanding </li>
+                <li nz-menu-item>Interest Due Report </li>
+                <li nz-menu-item>Auction Report </li>
+
+              </ul>
+            </li>
+
+          </ul>
+        </li>
+      </ul>
+    </nz-sider>
+    <nz-layout>
+      <nz-header>
+        <div class="app-header">
+          <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+              <span class="trigger"
+                 nz-icon
+                 [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+              ></span>
+          </span>
+        </div>
+      </nz-header>
+      
+      <nz-content>
+        <div class="inner-content">
+          <router-outlet></router-outlet>
+        </div>
+      </nz-content>
+    </nz-layout>
+  </nz-layout>
+  

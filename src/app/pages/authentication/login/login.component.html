@@ -1,0 +1,30 @@
+<div class="container-fluid login-card">
+    <div class="surface-card p-4 shadow-2 border-round w-full lg:w-6 ">
+        <h3 *ngIf="selectedBranch" class="text-center" >{{selectedBranch}}&nbsp;Bankers</h3>
+
+        <div class="text-center mb-5">
+            <div class="text-900 text-3xl font-medium mb-3">Welcome Back</div>
+
+        </div>
+    
+        <div>
+            <label for="email1" class="block text-900 font-medium mb-2">Admin</label>
+            <input id="email1" type="text" placeholder="Admin name" [(ngModel)]="username" pInputText class="w-full mb-3">
+    
+            <label for="password1" class="block text-900 font-medium mb-2">Password</label>
+            <input id="password1" type="password" placeholder="Password" [(ngModel)]="password" pInputText class="w-full mb-3">
+       
+            <label for="password1" class="block text-900 font-medium mb-2">Branch</label>
+
+            <select pInputText  class="w-full mb-3" [(ngModel)]="selectedBranch" placeholder="Password">
+            <option *ngFor="let branch of Branches" [value]="branch.name">{{ branch.name }}</option>
+            </select>
+          
+
+    
+            <button pButton pRipple label="Sign In" (click)="validate()" icon="pi pi-user" class="w-full"></button>
+        </div>
+</div>
+</div>
+
+
